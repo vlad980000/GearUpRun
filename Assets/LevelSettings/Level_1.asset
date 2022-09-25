@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3b972ed6fbac14d9ae90d61f0fbd67, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 9103772270929669692, guid: 431642e4ae9ffbb409daf4534a48e511, type: 3}
+  _prison: {fileID: 0}
+  _enemyHealthPoints: 10
+  _enemyReward: 5
+  _enemyDamage: 10
+  _enemyCount: 1
+  _mapLenght: 10
+  _supportCount: 0
