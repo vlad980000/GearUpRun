@@ -24,6 +24,6 @@ public class Game : MonoBehaviour
     private void ResetLevel()
     {
         _mapCreator.CreateMap(_currentLevel.MapLenght,_currentLevel.Enemy,_currentLevel.EnemyHealth, _currentLevel.EnemyDamage, _currentLevel.EnemyReward,_currentLevel.EnemyCount);
-        _player.transform.position = Vector3.zero;    
+        _player.transform.position = Vector3.zero + new Vector3(0,0,0);    
     }
 }

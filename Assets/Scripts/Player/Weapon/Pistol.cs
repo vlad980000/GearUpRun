@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pistol : Weapon
 {
-    [SerializeField] private Bullet _bullet;
-    [SerializeField] private Transform _shootPoint;
-
-    public override void Shoot()
+    private void Update()
     {
-        Instantiate(_bullet, _shootPoint.position, Quaternion.identity).SetDamage(_damage);
+        Debug.Log(Damage);
+    }
+    public override void Shoot(Transform shootPoint)
+    {
+        var bullet = Instantiate(Bullet, shootPoint.position,Quaternion.identity); 
+        bullet.SetDamage(Damage);
     }
 }

@@ -13,9 +13,9 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector3.forward * _speed * Time.deltaTime, Space.Self);
     }
 
-    public void SetDamage(int Damage)
+    public void SetDamage(int damage)
     {
-        _damage = Damage;
+        _damage = damage;
     }
 
     private void OnTriggerEnter(Collider other)

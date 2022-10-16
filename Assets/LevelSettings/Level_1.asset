@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3b972ed6fbac14d9ae90d61f0fbd67, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 9103772270929669692, guid: 431642e4ae9ffbb409daf4534a48e511, type: 3}
+  _enemy: {fileID: 8186813835450225373, guid: 431642e4ae9ffbb409daf4534a48e511, type: 3}
   _prison: {fileID: 0}
-  _enemyHealthPoints: 10
+  _enemyHealthPoints: 1
   _enemyReward: 5
-  _enemyDamage: 10
-  _enemyCount: 1
-  _mapLenght: 10
+  _enemyDamage: 5
+  _enemyCount: 3
+  _mapLenght: 1
   _supportCount: 0

@@ -8,7 +8,7 @@ public class MapCreator : MonoBehaviour
 
     [SerializeField] private Base _base;
 
-    [SerializeField] private PlayerMovement _movementTarget;
+    [SerializeField] private PlayerMovementToBase _movementTarget;
 
     [SerializeField] private Player _player;
 
@@ -64,7 +64,8 @@ public class MapCreator : MonoBehaviour
         }
 
         SetPLayer();
-        _targetBase = Instantiate(_base,_startPosition + vector3 * (mapLenght), Quaternion.identity);
+        _targetBase = Instantiate(_base,_startPosition + vector3 * (mapLenght + 1), Quaternion.identity);
+        _player.SetBase(_targetBase);
         _movementTarget.SetTarget(_targetBase.transform);
     }
 
@@ -74,7 +75,7 @@ public class MapCreator : MonoBehaviour
         {
             var newEnemy = Instantiate(enemy, GetRandomPoint(spawnPoint), Quaternion.identity);
             newEnemy.SetTarget(_player);
-            newEnemy.SetStats(enemyDamage, enemyDamage, enemyReward);
+            newEnemy.SetStats(enemyDamage, enemyHealth, enemyReward);
             newEnemy.gameObject.SetActive(false);
             _enemyList.Add(newEnemy);
         }

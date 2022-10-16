@@ -1,36 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected int _damage;
+    [SerializeField] private int _timeBetwenShots;
+    [SerializeField] private int _level;
+    [SerializeField] private int _damage;
 
-    [SerializeField] protected float _timeBetwenShots;
+    [SerializeField] private bool _isBuyed;
 
-    [SerializeField] protected bool _isBuyed;
+    [SerializeField] private GameObject _model;
 
-    public abstract void Shoot();
+    [SerializeField] protected Bullet Bullet;
 
-    private IEnumerator ShootDelay()
+    [SerializeField] private Sprite _icon;
+
+    public GameObject Model => _model;
+
+    public int Damage => _damage;
+
+    public int TimeBetwenShots => _timeBetwenShots;
+
+    public bool IsBuyed => _isBuyed;
+
+    public Sprite Image => _icon;
+
+    public int Level => _level;
+
+    public abstract void Shoot(Transform shootPoint);
+
+    public void UpgradeDamage(int damage)
     {
-        var shootDelay = new WaitForSeconds(_timeBetwenShots);
-
-        while (true)
-        {
-            Shoot();
-
-            yield return shootDelay;
-        }
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(ShootDelay());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(ShootDelay());
+        _damage += damage;
+        _level++;
     }
 }

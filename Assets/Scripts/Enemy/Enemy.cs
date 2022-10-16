@@ -8,14 +8,25 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private ColorChanger _colorChanger;
     [SerializeField] private ParticleSystem _bloodEffect;
-    [SerializeField] private Animator _animator;
+    [SerializeField] private UnityEngine.Animator _animator;
+
+    private MoveToTarget _mover;
 
     private int _healthPoint;
     private int _damage;
     private int _reward;
 
+    private BoxCollider _collider;
+
     private Player _player;
     public Player Player => _player;
+
+    private void Start()
+    {
+        _collider = GetComponent<BoxCollider>();
+        _bloodEffect.Stop();
+        _mover = GetComponent<MoveToTarget>();
+    }
 
     public void SetTarget(Player player)
     {
@@ -47,6 +58,8 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
-        _animator.SetBool();
+        _mover.enabled = false;
+        _animator.SetTrigger("Death");
+        _collider.enabled = false;
     }
 }
