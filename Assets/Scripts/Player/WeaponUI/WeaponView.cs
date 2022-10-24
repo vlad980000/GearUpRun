@@ -11,6 +11,10 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private TMP_Text _level;
 
     [SerializeField] private Image _icon;
+
+    [SerializeField] private Button _button;
+
+    private Player _player;
     
     private Weapon _weapon;
 
@@ -22,5 +26,15 @@ public class WeaponView : MonoBehaviour
         _damage.text = $"Damage :{_weapon.Damage.ToString()}";
         _level.text = $"Level :{_weapon.Level.ToString()}";
         _icon.sprite = _weapon.Image;
+    }
+
+    public void SetPlayer(Player player)
+    {
+        _player = player;
+    }
+
+    public void SetWeapon()
+    {
+        _player.SetWeapon(_weapon);
     }
 }

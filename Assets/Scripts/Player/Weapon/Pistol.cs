@@ -9,9 +9,10 @@ public class Pistol : Weapon
     {
         Debug.Log(Damage);
     }
+
     public override void Shoot(Transform shootPoint)
     {
         var bullet = Instantiate(Bullet, shootPoint.position,Quaternion.identity); 
-        bullet.SetDamage(Damage);
+        bullet.SetStats(Damage,BulletLifetime);
     }
 }

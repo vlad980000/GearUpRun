@@ -13,6 +13,10 @@ public class PathCell : MonoBehaviour
 
     public event UnityAction <PathCell> SpawnEnemyes;
 
+    public Transform Start => _start;
+
+    public Transform End => _end;
+
     private void Update()
     {
         if (_player != null)
@@ -35,6 +39,5 @@ public class PathCell : MonoBehaviour
         }
     }
 
-    public Transform Start => _start;
-    public Transform End => _end;
+    
 }

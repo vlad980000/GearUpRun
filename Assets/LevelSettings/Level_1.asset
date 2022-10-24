@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemy: {fileID: 8186813835450225373, guid: 431642e4ae9ffbb409daf4534a48e511, type: 3}
   _prison: {fileID: 0}
-  _enemyHealthPoints: 1
+  _enemyHealthPoints: 5
   _enemyReward: 5
   _enemyDamage: 5
   _enemyCount: 3
-  _mapLenght: 1
+  _mapLenght: 11
   _supportCount: 0

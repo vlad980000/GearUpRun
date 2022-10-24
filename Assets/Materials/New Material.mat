@@ -8,16 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
-  m_ValidKeywords:
-  - _CELPRIMARYMODE_SINGLE
-  - _TEXTUREBLENDINGMODE_MULTIPLY
+  m_Shader: {fileID: 4800000, guid: e32cae2a5bbfb41888ef2ba8391ab87d, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _CELPRIMARYMODE_SINGLE
+  - _SUNDISK_HIGH_QUALITY
+  - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -74,6 +75,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _AtmosphereThickness: 1
     - _Blend: 0
     - _BumpScale: 1
     - _CelExtraEnabled: 0
@@ -85,7 +87,8 @@ Material:
     - _DirectionPitch: 0
     - _DirectionYaw: 0
     - _DstBlend: 0
-    - _Exponent: 1.74
+    - _Exponent: 3
+    - _Exposure: 1.3
     - _FlatRimEdgeSmoothness: 0.5
     - _FlatRimLightAlign: 0
     - _FlatRimSize: 0.5
@@ -101,7 +104,7 @@ Material:
     - _GradientCenterY: 0
     - _GradientEnabled: 0
     - _GradientSize: 10
-    - _Intensity: 1.04
+    - _Intensity: 0.86
     - _LightContribution: 0
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
@@ -120,6 +123,9 @@ Material:
     - _SpecularEnabled: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SunDisk: 2
+    - _SunSize: 0.04
+    - _SunSizeConvergence: 5
     - _Surface: 0
     - _TextureBlendingMode: 0
     - _TextureImpact: 1
@@ -131,7 +137,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0.9901974, b: 1, a: 1}
-    - _Color1: {r: 1, g: 1, b: 1, a: 0}
+    - _Color1: {r: 0.17543605, g: 0.7701258, b: 0.8301887, a: 0}
     - _Color2: {r: 0.013082896, g: 0.990566, b: 0.9320842, a: 0}
     - _ColorDim: {r: 0, g: 0.99019736, b: 1, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
@@ -142,7 +148,9 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
+    - _GroundColor: {r: 0.36899996, g: 0.34899998, b: 0.34099993, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
   m_BuildTextureStacks: []

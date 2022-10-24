@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 401789144472756826}
   - component: {fileID: 401789144472756827}
   - component: {fileID: 401789144472756828}
-  - component: {fileID: 401789144472756829}
+  - component: {fileID: 4547908811028269690}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &401789144472756829
-CapsuleCollider:
+--- !u!65 &4547908811028269690
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,9 +94,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.52
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 3.31, y: 2.07, z: 1.45}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &401789144685482780
 GameObject:
@@ -217,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _start: {fileID: 2464080530592652840}
   _end: {fileID: 5585270129779590417}
-  _playerDistance: 15
+  _playerDistance: 30
 --- !u!114 &216710912473582459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +273,7 @@ GameObject:
   - component: {fileID: 401789145167238643}
   - component: {fileID: 401789145167238644}
   - component: {fileID: 401789145167238645}
-  - component: {fileID: 401789145167238646}
+  - component: {fileID: 2173647493203398118}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -347,8 +346,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &401789145167238646
-CapsuleCollider:
+--- !u!65 &2173647493203398118
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -357,9 +356,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.52
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 3.31, y: 2.07, z: 1.45}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4389534579533468960
 GameObject:

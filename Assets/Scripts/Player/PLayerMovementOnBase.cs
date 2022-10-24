@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PLayerMovementOnBase : MonoBehaviour
 {
@@ -24,10 +25,7 @@ public class PLayerMovementOnBase : MonoBehaviour
 
     public bool IsMoving => _isMoving;
 
-    private void Awake()
-    {
-        _joystick.gameObject.SetActive(false);
-    }
+    public UnityEvent<bool> ValueIsChanhed;
 
     private void Start()
     {
@@ -40,6 +38,7 @@ public class PLayerMovementOnBase : MonoBehaviour
     private void FixedUpdate()
     {
         _direction = new Vector3(_joystick.Horizontal / _movementSpeed, 0, _joystick.Vertical / _movementSpeed);
+
         if (_isCanMove == true)
         {
             transform.position += _direction;
@@ -49,11 +48,15 @@ public class PLayerMovementOnBase : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(_direction);
                 _animator.SetBool("isMoving", true);
                 _isMoving = true;
+
+                ValueIsChanhed?.Invoke(_isMoving);
             }
             else
             {
                 _animator.SetBool("isMoving", false);
                 _isMoving = false;
+
+                ValueIsChanhed?.Invoke(_isMoving);
             }
         }
         else

@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class WeaponShowcase : Showcase
 {
-    [SerializeField] private Pistol _weapon;
+    [SerializeField] private Weapon _weapon;
 
     [SerializeField] private float _animationDuration;
 
@@ -26,14 +26,16 @@ public class WeaponShowcase : Showcase
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
+
         StartAnimation();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.GetComponent<Player>().GetComponent<PLayerMovementOnBase>().IsMoving == false)
+        if(other.TryGetComponent(out Player player))
         {
-            StartCoroutine(PassMoney(other.GetComponent<Player>().PussMoney(_coroutineValue)));
+            if(player.GetComponent<PLayerMovementOnBase>().IsMoving == false)
+                StartCoroutine(PassMoney(player));
         }
     }
 
@@ -45,23 +47,20 @@ public class WeaponShowcase : Showcase
         tween.SetEase(Ease.Linear).SetLoops(-1);
     }
 
-    private void UpgradeWeapon()
+    private void UpgradeWeapon(Player player)
     {
-        for (int i = 0; i < _player.Weapons.Length; i++)
-        {
-            if(_player.Weapons[i] == _weapon)
-                _player.Weapons[i].UpgradeDamage(_upgradeValue);
-        }
+        player.UpgradeWeapon(_weapon,_upgradeValue);
     }
 
-    private IEnumerator PassMoney(int value)
+    private IEnumerator PassMoney(Player player)
     {
-        _currentCostUpgrade += value;
+        _currentCostUpgrade += _coroutineValue;
+
+        player.PussMoney(_coroutineValue);
 
         if(_currentCostUpgrade == _upgradeValue)
-        {
-            UpgradeWeapon();
-        }
+            UpgradeWeapon(player);
+
         yield return null;
         yield break;
     }

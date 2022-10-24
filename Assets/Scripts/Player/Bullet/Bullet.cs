@@ -8,14 +8,23 @@ public class Bullet : MonoBehaviour
 
     private int _damage;
 
+    private float _lifeTime;
+    private float _time = 0;
+
     private void Update()
     {
         transform.Translate(Vector3.forward * _speed * Time.deltaTime, Space.Self);
+
+        _time += Time.deltaTime;
+
+        if( _time > _lifeTime )
+            Destroy(gameObject);
     }
 
-    public void SetDamage(int damage)
+    public void SetStats(int damage, float lifeTime)
     {
         _damage = damage;
+        _lifeTime = lifeTime;
     }
 
     private void OnTriggerEnter(Collider other)

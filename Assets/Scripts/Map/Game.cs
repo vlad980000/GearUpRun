@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+    private static int _levelIndex = 0;
+
     [SerializeField] private Player _player;
     [SerializeField] private MapCreator _mapCreator;
     [SerializeField] private List<EnemySettings> _enemySettings;
@@ -13,12 +16,25 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        _startLevel = _enemySettings[0];
+        _startLevel = _enemySettings[_levelIndex];
 
         if (_currentLevel == null)
             _currentLevel = _startLevel;
 
         ResetLevel();
+    }
+
+    public void SetNextLevel()
+    {
+        if(_levelIndex < _enemySettings.Count)
+        {
+            _levelIndex++;
+            SceneManager.LoadScene("SampleScene");
+        }
+        else
+        {
+            Debug.Log("Вы прошли игру");
+        }
     }
 
     private void ResetLevel()

@@ -18,8 +18,15 @@ public class WeaponInput : MonoBehaviour
 
     private void AddWeapon(Weapon weapon)
     {
-        var view = Instantiate(_weaponView,_conteiner.transform);
-
-        view.Render(weapon);
+        if(weapon.IsBuyed == true)
+        {
+            var view = Instantiate(_weaponView, _conteiner.transform);
+            view.SetPlayer(_player);
+            view.Render(weapon);
+        }
+        else
+        {
+            return;
+        }
     }
 }

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
     <Compile Include="Assets\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\Scripts\Player\Support.cs" />
+    <Compile Include="Assets\Scripts\Player\Weapon\Ak47.cs" />
     <Compile Include="Assets\FlatKit\Demos\Common\Scripts\Motion\LinearMotion.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovementToBase.cs" />
     <Compile Include="Assets\Scripts\Base\Showcase.cs" />

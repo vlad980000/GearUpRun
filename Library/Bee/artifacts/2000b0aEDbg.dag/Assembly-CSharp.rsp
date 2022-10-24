@@ -388,6 +388,7 @@
 "Assets/Scripts/Player/PlayerMovementToBase.cs"
 "Assets/Scripts/Player/PlayerUI/MoneyInput.cs"
 "Assets/Scripts/Player/Support.cs"
+"Assets/Scripts/Player/Weapon/Ak47.cs"
 "Assets/Scripts/Player/Weapon/Pistol.cs"
 "Assets/Scripts/Player/Weapon/Weapon.cs"
 "Assets/Scripts/Player/WeaponUI/WeaponInput.cs"

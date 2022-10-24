@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] private int _timeBetwenShots;
+    [SerializeField] private float _timeBetwenShots;
+    [SerializeField] private float _bulletLifetime;
+
     [SerializeField] private int _level;
     [SerializeField] private int _damage;
 
@@ -21,7 +23,7 @@ public abstract class Weapon : MonoBehaviour
 
     public int Damage => _damage;
 
-    public int TimeBetwenShots => _timeBetwenShots;
+    public float TimeBetwenShots => _timeBetwenShots;
 
     public bool IsBuyed => _isBuyed;
 
@@ -29,11 +31,18 @@ public abstract class Weapon : MonoBehaviour
 
     public int Level => _level;
 
+    public float BulletLifetime => _bulletLifetime;
+
     public abstract void Shoot(Transform shootPoint);
 
     public void UpgradeDamage(int damage)
     {
         _damage += damage;
         _level++;
+    }
+
+    public void Buy()
+    {
+        _isBuyed = true;
     }
 }

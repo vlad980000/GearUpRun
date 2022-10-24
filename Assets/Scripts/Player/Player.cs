@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     private PlayerMoveController _moveController;
     private PlayerMovementToBase _playerMovement;
+    private PLayerMovementOnBase _playerMovementOnBase;
 
     private Weapon _currentWeapon;
 
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     {
         _moveController = GetComponent<PlayerMoveController>();
         _playerMovement = GetComponent<PlayerMovementToBase>();
+        _playerMovementOnBase = GetComponent<PLayerMovementOnBase>();
         TakeStartWeapon();
     }
 
@@ -37,7 +39,9 @@ public class Player : MonoBehaviour
         if(_money >= value)
         {
             _money -= value;
+
             MoneyIsChanged?.Invoke(_money);
+
             return value;
         }
         return 0;
@@ -48,13 +52,50 @@ public class Player : MonoBehaviour
         _base = maineBase;
     }
 
+    public void UpgradeWeapon(Weapon weapon, int damage)
+    {
+        for (int i = 0; i < _weapons.Length; i++)
+        {
+            if(_weapons[i] == weapon)
+            {
+                if(_weapons[i].IsBuyed == false)
+                    _weapons[i].Buy();
+                else
+                    _weapons[i].UpgradeDamage(damage);
+            }
+        }
+    }
+
+    public void SetWeapon(Weapon weapon)
+    {
+        for (int i = 0; i < _weapons.Length; i++)
+        {
+            if (_weapons[i] == weapon)
+            {
+
+                if(_currentWeapon != null)
+                    Destroy(_currentWeapon.gameObject);
+
+                _currentWeapon = Instantiate(_weapons[i], _weaponTransform);
+
+                if (_shoot != null)
+                {
+                    StopCoroutine(_shoot);
+                    StartShootCoroutine();
+                }
+                else
+                {
+                    StartShootCoroutine();
+                }    
+            }
+        }
+    }
+
     private void TakeStartWeapon()
     {
         if(_currentWeapon == null)
         {
-            _currentWeapon = _weapons[0];
-            Instantiate(_currentWeapon.Model,_weaponTransform);
-            StartShootCoroutine();
+            SetWeapon(_weapons[0]);
         }
         else
         {
@@ -67,7 +108,7 @@ public class Player : MonoBehaviour
         _shoot = StartCoroutine(Shoot(_currentWeapon.TimeBetwenShots));
     }
 
-    private IEnumerator Shoot(int shootDelay)
+    private IEnumerator Shoot(float shootDelay)
     {
         var dealay = new WaitForSeconds(shootDelay);
 
@@ -75,9 +116,8 @@ public class Player : MonoBehaviour
         {
             while(_currentWeapon != null)
             {
-                _currentWeapon.Shoot(_weaponTransform);
-
                 yield return dealay;
+                _currentWeapon.Shoot(_weaponTransform);
             }
         }
         yield break;
